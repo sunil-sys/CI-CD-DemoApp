@@ -55,6 +55,17 @@ public class DemoController {
 	      return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
 	   }
 	   
+	   @RequestMapping(value = "/dockerapp")
+	   public String getDockerApp() throws InterruptedException {
+		   
+		   String appmsg="Welcome docker app demo";
+		   //hold
+		   
+		   //Thread.sleep(3000);
+	      return appmsg;
+	   }
+	   
+	   
 	   @RequestMapping(value = "/products")
 	   @HystrixCommand(fallbackMethod = "fallback_sunil", commandProperties = {
 			   @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
